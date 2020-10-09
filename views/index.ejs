@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>URL SHORTNER</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">URL SHRINKER</span>
+    </nav>
+
+    <div class="container my-5">
+        <!-- <h1 class="text-center">URL SHORTNER</h1> -->
+        <div class="card card-body mx-auto w-75">
+            <form action="/shortUrls" method="POST" class="form-inline">
+                <label for="url" class="sr-only">URL</label>
+                <input class="form-control col" type="url" name="url" id=url placeholder="Enter Full Url..." required >
+                <input class="btn btn-outline-success btn-sm ml-2" type="submit">
+            </form>
+            <table class="table table-striped mt-3 ">
+
+                <thead>
+                    <tr>
+                        <th>Full Url</th>
+                        <th>Short Url</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <% shortUrls.forEach(shortUrl => { %>
+                        <tr>
+                            <td><a href="<%= shortUrl.url %>"><%= shortUrl.url %> </a></td>
+                            <td><a href="<%= shortUrl.short %> "><%= shortUrl.short %></a></td>
+                        </tr>
+                     <% }) %> 
+                   
+                   
+                </tbody>
+            </table>
+        </div>
+
+
+        
+    </div>
+    
+</body>
+</html>
