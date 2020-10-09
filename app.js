@@ -27,8 +27,8 @@ app.get('/', async (req, res) => {
     try {
         const shortUrls = await ShortUrl.find({})
         res.render('index', {shortUrls: shortUrls})
-    } catch (err) {
-        res.send(404).json({message: error.message})
+    } catch (error) {
+        res.status(404).json({message: error.message})
     }
    
 })
